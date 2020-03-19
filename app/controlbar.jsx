@@ -1,6 +1,10 @@
 
 import React from 'react';
 import d3 from 'd3';
+import Componente from "./decorador/componente";
+import Mute from "./decorador/mute";
+import Vibrator from "./decorador/vibrator";
+import PlayBar from "./decorador/playbar";
 
 var PlaybackStore = require('./stores/playbackstore.js');
 var VTIconStore = require('./stores/vticonstore.js');
@@ -11,7 +15,9 @@ var ControlBar = React.createClass({
 	propTypes: {
 		name : React.PropTypes.string.isRequired,
 		playing: React.PropTypes.bool.isRequired,
+		vibrator: React.PropTypes.bool.isRequired,
 		mute: React.PropTypes.bool.isRequired
+		
 			},
 
 	getDefaultProps: function() {
@@ -29,9 +35,13 @@ var ControlBar = React.createClass({
 	* Event handlers
 	* 
 	*/
-	_onMuteClick : function (event) {
+	/*_onMuteClick : function (event) {
 		PlaybackStore.actions.toggleMute();
-	},
+	},*/
+
+	/*_onVibratorClick : function (event) {
+		PlaybackStore.actions.vibratorMute();
+	},*/
 
 	_onPlayClick : function (event) {
 		VTIconStore.actions.selectVTIcon(this.props.name);
@@ -79,17 +89,22 @@ var ControlBar = React.createClass({
 		if (this.props.playing) {
 			iconText = "fa fa-pause";
 		}
+	
+		var m= new Mute(new PlayBar());
+		var v= new Vibrator(m);
+		var a=v.getEtiqueta();
+
 
 		return (
-			<div className="controlbar" style={divStyle}>
-				<div className="time-control" style={timeControlStyle}>
-					 <a class="btn" href="#"><i onClick={this._onSkipBackwardClick} className="fa fa-step-backward" style={buttonStyle}></i></a>
-					 <a class="btn" href="#"><i onClick={this._onPlayClick} className={iconText} style={buttonStyle}></i></a>
-					 <a class="btn" href="#"><i onClick={this._onSkipForwardClick} className="fa fa-step-forward" style={buttonStyle}></i></a>
-					 <a class="btn" href="#"><span onClick={this._onMuteClick} className="unselectable mute"><input type="checkbox" checked={this.props.mute}/>Mute</span></a>
-					 <a class="btn" href="#"><span onClick={this._onMuteClick} className="unselectable mute"><input type="checkbox" checked={this.props.mute}/>Vibrator</span></a>
-				</div>	
+            <div className="controlbar" style={divStyle}>
+			<div className="time-control" style={timeControlStyle}>
+				 <a class="btn" href="#"><i onClick={this._onSkipBackwardClick} className="fa fa-step-backward" style={buttonStyle}></i></a>
+				 <a class="btn" href="#"><i onClick={this._onPlayClick} className={iconText} style={buttonStyle}></i></a>
+				 <a class="btn" href="#"><i onClick={this._onSkipForwardClick} className="fa fa-step-forward" style={buttonStyle}></i></a>
+			     {a.pop()}
+				 {a.pop()}
 			</div>
+		</div>
 			);
 	}
 

@@ -22,7 +22,8 @@ var playbackActions = Reflux.createActions(
 		'skipBackward',
 		'skipForward',
 
-		'toggleMute']
+		'toggleMute',
+	    'vibratorMute']
 
 );
 
@@ -41,7 +42,8 @@ var playbackStore = Reflux.createStore({
 						start:0, //ms
 						end:0 //ms
 					},
-					mute:true,
+					mute:false,
+					
 				};
 
 		this._lastTimerTime = Date.now();
@@ -69,6 +71,12 @@ var playbackStore = Reflux.createStore({
 	onToggleMute() {
 		this._data.mute = !this._data.mute;
 		LogStore.actions.log("PLAYBACK_MUTE_"+this._data.mute);
+		this.trigger(this._data);
+	},
+
+	onVibratorMute() {
+		this._data.vibrator = !this._data.vibrator;
+		LogStore.actions.log("PLAYBACK_Vibrator_"+this._data.vibrator);
 		this.trigger(this._data);
 	},
 
