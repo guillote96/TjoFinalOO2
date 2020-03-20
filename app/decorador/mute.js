@@ -7,6 +7,10 @@ class Mute extends Decorador {
     
   constructor(unComponente){
       super(unComponente);
+      this.props= {
+        frequency: React.PropTypes.number.isRequired,
+        amplitude: React.PropTypes.number.isRequired,
+        mute: React.PropTypes.bool}
     }
 
   click(event) {

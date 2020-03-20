@@ -56,10 +56,11 @@ var SoundGen = React.createClass({
 		var audiolet = new Audiolet();
 		var sine = new Sine(audiolet, this.props.frequency);
 		var mult = new Multiply(audiolet, this.props.amplitude);
+
 		sine.connect(mult);
 		mult.connect(audiolet.output);
 
-
+        
 		this.setState( {
 			audiolet: audiolet,
 			sine: sine,

@@ -1,13 +1,17 @@
 import Decorador from "./decorador";
 import React from 'react';
+import PlayBar from "./playbar";
 var PlaybackStore = require('../stores/playbackstore.js');
+var VTIconStore = require('../stores/vticonstore.js');
 
 class Vibrator extends Decorador {
 
     constructor(unComponente){
         super(unComponente);
 
+
       }
+
 
     render() {
         return (
@@ -16,7 +20,7 @@ class Vibrator extends Decorador {
      }
 
    click (event) {
-		  PlaybackStore.actions.vibratorMute();
+      PlaybackStore.actions.vibratorMute();
   	}
     
   
@@ -26,6 +30,7 @@ class Vibrator extends Decorador {
        return elem;
      }
 
+
      
 
     
@@ -34,5 +39,7 @@ class Vibrator extends Decorador {
 
 
 }
+Vibrator.props= {
+  vibrator: React.PropTypes.bool}
 
 export default Vibrator;

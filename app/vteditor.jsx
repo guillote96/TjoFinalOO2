@@ -20,6 +20,7 @@ var SelectionStore = require('./stores/selectionstore.js');
 var ClipboardStore = require('./stores/clipboardstore.js');
 var AnimationStore = require('./stores/animationstore.js');
 var StudyStore = require('./stores/studystore.js')
+var Haptics = require ('./haptics.jsx');
 
 
 
@@ -368,6 +369,7 @@ var VTEditor = React.createClass({
 			<div id="app" ref="appRef">
 				<EditorHeader />
 				<SoundGen frequency={frequency} amplitude={amplitude_for_soundgen} mute={this.state.playback.mute} />
+				<Haptics frequency={frequency} vibrator={this.state.playback.vibrator} playing={this.state.playback.playing}/>
 				<AnimationWindow
 						name="main"
 						animation={this.state.animation.animation}

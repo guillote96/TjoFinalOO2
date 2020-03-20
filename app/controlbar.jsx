@@ -46,6 +46,7 @@ var ControlBar = React.createClass({
 	_onPlayClick : function (event) {
 		VTIconStore.actions.selectVTIcon(this.props.name);
 		PlaybackStore.actions.togglePlaying();
+
 	},
 
 	_onSkipBackwardClick : function (event) {
@@ -95,13 +96,14 @@ var ControlBar = React.createClass({
 		var a=v.getEtiqueta();
 
 
+
 		return (
             <div className="controlbar" style={divStyle}>
 			<div className="time-control" style={timeControlStyle}>
 				 <a class="btn" href="#"><i onClick={this._onSkipBackwardClick} className="fa fa-step-backward" style={buttonStyle}></i></a>
 				 <a class="btn" href="#"><i onClick={this._onPlayClick} className={iconText} style={buttonStyle}></i></a>
 				 <a class="btn" href="#"><i onClick={this._onSkipForwardClick} className="fa fa-step-forward" style={buttonStyle}></i></a>
-			     {a.pop()}
+                 {a.pop()}
 				 {a.pop()}
 			</div>
 		</div>
