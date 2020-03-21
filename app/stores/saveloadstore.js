@@ -38,6 +38,7 @@ var saveLoadStore = Reflux.createStore({
 		 * Creating the Pop-Up Style Container for Download Links
 		 */
 		var linksContainer = document.createElement("div");
+		linksContainer.style="text-align:left";
 		linksContainer.id = "save-links-container";
 		linksContainer.classList.add("save-link-container");
 
@@ -119,6 +120,7 @@ var saveLoadStore = Reflux.createStore({
 
 		var spacer = document.createElement("br");
 		var linksText = document.createElement("p");
+
 		linksText.id = "links-text";
 		linksText.appendChild(spacer);
 		linksText.appendChild(jsonDownloadLink);

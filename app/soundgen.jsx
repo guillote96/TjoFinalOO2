@@ -87,6 +87,7 @@ var SoundGen = React.createClass({
 			}
 			this.state.mult.value.setValue(amplitude);
 		}
+
 		return <div id="soundgen"></div>
 
 	}
