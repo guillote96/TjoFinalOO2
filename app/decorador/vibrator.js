@@ -41,6 +41,7 @@ class Vibrator extends Decorador {
 
 }
 Vibrator.props= {
-  vibrator: React.PropTypes.bool}
+  vibrator: React.PropTypes.bool,
+}
 
 export default Vibrator;
