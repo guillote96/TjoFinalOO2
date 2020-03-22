@@ -1,5 +1,6 @@
 import Reflux from 'reflux';
 
+
 var VTIconStore = require('./vticonstore.js');
 var LogStore = require('./logstore.js');
 
@@ -42,7 +43,8 @@ var playbackStore = Reflux.createStore({
 						start:0, //ms
 						end:0 //ms
 					},
-					mute:false,
+					mute:true,
+					vibrator:true
 					
 				};
 

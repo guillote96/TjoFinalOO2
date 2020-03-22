@@ -35,13 +35,6 @@ var ControlBar = React.createClass({
 	* Event handlers
 	* 
 	*/
-	/*_onMuteClick : function (event) {
-		PlaybackStore.actions.toggleMute();
-	},*/
-
-	/*_onVibratorClick : function (event) {
-		PlaybackStore.actions.vibratorMute();
-	},*/
 
 	_onPlayClick : function (event) {
 		VTIconStore.actions.selectVTIcon(this.props.name);
@@ -103,7 +96,7 @@ var ControlBar = React.createClass({
 				 <a class="btn" href="#"><i onClick={this._onSkipBackwardClick} className="fa fa-step-backward" style={buttonStyle}></i></a>
 				 <a class="btn" href="#"><i onClick={this._onPlayClick} className={iconText} style={buttonStyle}></i></a>
 				 <a class="btn" href="#"><i onClick={this._onSkipForwardClick} className="fa fa-step-forward" style={buttonStyle}></i></a>
-                 {a.pop()}
+				 {a.pop()}
 				 {a.pop()}
 			</div>
 		</div>

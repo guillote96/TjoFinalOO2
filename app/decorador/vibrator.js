@@ -15,12 +15,13 @@ class Vibrator extends Decorador {
 
     render() {
         return (
-            <a class="btn" href="#"><span onClick={this.click} className="unselectable mute"><input type="checkbox" checked={this.props.vibrator}/>Vibrator</span></a>
+            <a class="btn" href="#"><span onClick={this.click} className="unselectable mute"><input type="checkbox" checked={Vibrator.props.vibrator}/>Vibrator</span></a>
         );
      }
 
    click (event) {
       PlaybackStore.actions.vibrator();
+      Vibrator.props.vibrator=!Vibrator.props.vibrator;
   	}
     
   

@@ -4,22 +4,20 @@ var PlaybackStore = require('../stores/playbackstore.js');
 
 
 class Mute extends Decorador {
-    
   constructor(unComponente){
       super(unComponente);
-      this.props= {
-        frequency: React.PropTypes.number.isRequired,
-        amplitude: React.PropTypes.number.isRequired,
-        mute: React.PropTypes.bool}
+
     }
 
   click(event) {
-		PlaybackStore.actions.toggleMute();
-	}
+    PlaybackStore.actions.toggleMute();
+    Mute.props.mute=!Mute.props.mute;
+  }
+  
   
   render() {
     return (
-      <a class='btn' href='#'><span onClick={this.click} className='unselectable mute'><input type='checkbox' checked={this.props.mute}/>Mute</span></a>
+      <a class='btn' href='#'><span onClick={this.click} className='unselectable mute'><input type='checkbox' checked={Mute.props.mute}/>Mute</span></a>
     );
  }
 
@@ -30,6 +28,7 @@ class Mute extends Decorador {
    }
 
 }
-
+Mute.props= {
+  mute: React.PropTypes.bool}
 
 export default Mute;
