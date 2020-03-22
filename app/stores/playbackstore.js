@@ -23,7 +23,7 @@ var playbackActions = Reflux.createActions(
 		'skipForward',
 
 		'toggleMute',
-	    'vibratorMute']
+	    'vibrator']
 
 );
 
@@ -74,7 +74,7 @@ var playbackStore = Reflux.createStore({
 		this.trigger(this._data);
 	},
 
-	onVibratorMute() {
+	onVibrator() {
 		this._data.vibrator = !this._data.vibrator;
 		LogStore.actions.log("PLAYBACK_Vibrator_"+this._data.vibrator);
 		this.trigger(this._data);

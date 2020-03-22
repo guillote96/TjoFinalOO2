@@ -20,7 +20,7 @@ class Vibrator extends Decorador {
      }
 
    click (event) {
-      PlaybackStore.actions.vibratorMute();
+      PlaybackStore.actions.vibrator();
   	}
     
   
