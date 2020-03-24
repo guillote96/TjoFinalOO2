@@ -86,7 +86,7 @@ var ControlBar = React.createClass({
 	
 		var m= new Mute(new PlayBar());
 		var v= new Vibrator(m);
-		var a=v.getEtiqueta();
+		var unComponente=v.getEtiqueta();
 
 
 
@@ -96,8 +96,8 @@ var ControlBar = React.createClass({
 				 <a class="btn" href="#"><i onClick={this._onSkipBackwardClick} className="fa fa-step-backward" style={buttonStyle}></i></a>
 				 <a class="btn" href="#"><i onClick={this._onPlayClick} className={iconText} style={buttonStyle}></i></a>
 				 <a class="btn" href="#"><i onClick={this._onSkipForwardClick} className="fa fa-step-forward" style={buttonStyle}></i></a>
-				 {a.pop()}
-				 {a.pop()}
+				 {unComponente.pop()}
+				 {unComponente.pop()}
 			</div>
 		</div>
 			);
