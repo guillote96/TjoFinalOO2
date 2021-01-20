@@ -1,5 +1,7 @@
 # Macaron
-Vibrotactile Icon Editor
+Vibrotactile Icon Editor 
+
+SE REFORMO EL PROYECTO ORIGINAL UTILIZANDO PATRONES Y AGREGANDO NUEVA FUNCIONALIDAD
 
 ## Installation Instructions
 
